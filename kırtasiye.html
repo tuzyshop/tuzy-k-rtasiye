@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kırtasiye Ürünleri | TuZy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
+        nav {
+            background-color: #ffffff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e31e24;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #1a73e8;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #e31e24;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #e31e24 0%, #c0392b 100%);
+            color: white;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            opacity: 1;
+        }
+
+        .products-section {
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #e31e24;
+            color: white;
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 50px;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-cat {
+            font-size: 12px;
+            color: #1a73e8;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #222;
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+
+        .btn-order {
+            background: #25d366;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-order:hover {
+            background: #1da851;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">TuZy <span>Kırtasiye</span></a>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="kirtasiye.html" class="active">Kırtasiye</a>
+            <a href="oyuncak.html">Oyuncak</a>
+            <a href="index.html#iletisim">İletişim</a>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1><i class="fas fa-pencil-ruler"></i> Kırtasiye Ürünleri</h1>
+        <p>Okul ve ofis ihtiyaçlarınız için en kaliteli kırtasiye malzemeleri</p>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Ana Sayfaya Dön</a>
+    </section>
+
+    <section class="products-section">
+        <div class="products-grid">
+            <!-- Ürün 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="product-badge">Yeni Sezon</span>
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop&q=60" alt="Okul Çantası">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Kırtasiye</span>
+                    <h3 class="product-title">Ortopedik ve Kaliteli İlkokul - Ortaokul Çantaları</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20okul%20cantalari%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ürün 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="product-badge">Çok Satan</span>
+                    <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=500&auto=format&fit=crop&q=60" alt="Defter Seti">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Kırtasiye</span>
+                    <h3 class="product-title">Lisanslı Defter, Kalem ve Kırtasiye Setleri</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20defter%20setleri%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ürün 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&auto=format&fit=crop&q=60" alt="Boya Seti">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Sanatsal</span>
+                    <h3 class="product-title">Profesyonel Akrilik ve Sulu Boya Set Çeşitleri</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20boya%20setleri%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ürün 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="product-badge">İndirim</span>
+                    <img src="https://images.unsplash.com/photo-1586766993160-9c2f4e0b62e1?w=500&auto=format&fit=crop&q=60" alt="Kalem Seti">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Kırtasiye</span>
+                    <h3 class="product-title">Lisanslı Karakterli Kalem ve Silgi Setleri</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20kalem%20setleri%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ürün 5 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1526768759651-10c9e34be3da?w=500&auto=format&fit=crop&q=60" alt="Beslenme Çantası">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Kırtasiye</span>
+                    <h3 class="product-title">Termal Beslenme Çantası ve Matara Setleri</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20beslenme%20cantasi%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ürün 6 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="product-badge">Yeni</span>
+                    <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=500&auto=format&fit=crop&q=60" alt="Kırtasiye Seti">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Kırtasiye</span>
+                    <h3 class="product-title">Okula Dönüş Kırtasiye Seti (Özel Paket)</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20kirtasiye%20seti%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/905347427560" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>© 2026 TuZy Kırtasiye Oyuncak. Tüm Hakları Saklıdır. | Web Developer: Ensar</p>
+    </footer>
+
+</body>
+</html>
