@@ -6,86 +6,348 @@
     <title>Oyuncak Ürünleri | TuZy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f7f9fc; color: #333; }
-        nav { background-color: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 24px; font-weight: 700; color: #e31e24; text-decoration: none; }
-        .logo span { color: #1a73e8; }
-        .nav-links a { text-decoration: none; color: #555; margin-left: 20px; font-weight: 600; font-size: 14px; }
-        .nav-links a:hover, .nav-links a.active { color: #1a73e8; }
-        .page-header { background: linear-gradient(135deg, #1a73e8, #1557b0); color: white; padding: 50px 5%; text-align: center; }
-        .page-header h1 { font-size: 32px; margin-bottom: 10px; }
-        .page-header p { font-size: 15px; opacity: 0.9; }
-        .back-btn { display: inline-block; margin-top: 15px; color: white; text-decoration: none; font-weight: 600; font-size: 14px; }
-        .products-section { padding: 50px 5%; text-align: center; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border: 1px solid #eee; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .product-img { width: 100%; height: 220px; position: relative; }
-        .product-img img { width: 100%; height: 100%; object-fit: cover; }
-        .product-badge { position: absolute; top: 15px; left: 15px; background: #1a73e8; color: white; padding: 5px 12px; font-size: 12px; font-weight: 700; border-radius: 50px; }
-        .product-info { padding: 20px; }
-        .product-cat { font-size: 12px; color: #e31e24; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; }
-        .product-title { font-size: 17px; font-weight: 700; color: #333; margin-bottom: 10px; }
-        .product-price { font-size: 20px; font-weight: 700; color: #222; margin-bottom: 15px; }
-        .btn-order { background: #25d366; color: white; text-align: center; padding: 12px; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .btn-order:hover { background: #1da851; }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; }
-        footer { background: #333; color: white; text-align: center; padding: 20px; font-size: 13px; margin-top: 40px; }
-        @media (max-width: 768px) { .products-grid { grid-template-columns: 1fr; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
+        nav {
+            background-color: #ffffff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e31e24;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #1a73e8;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #1a73e8;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+            color: white;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            opacity: 1;
+        }
+
+        .products-section {
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #1a73e8;
+            color: white;
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 50px;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-cat {
+            font-size: 12px;
+            color: #e31e24;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #222;
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+
+        .btn-order {
+            background: #25d366;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-order:hover {
+            background: #1da851;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
+
     <nav>
-        <a href="index.html" class="logo">TuZy <span>Kirtasiye</span></a>
+        <a href="index.html" class="logo">TuZy <span>Kırtasiye</span></a>
         <div class="nav-links">
             <a href="index.html">Ana Sayfa</a>
-            <a href="kirtasiye.html">Kirtasiye</a>
+            <a href="kirtasiye.html">Kırtasiye</a>
             <a href="oyuncak.html" class="active">Oyuncak</a>
-            <a href="index.html#iletisim">Iletisim</a>
+            <a href="index.html#iletisim">İletişim</a>
         </div>
     </nav>
 
     <section class="page-header">
-        <h1><i class="fas fa-gamepad"></i> Oyuncak Dunyasi</h1>
-        <p>Cocuklarinizin hayal gucunu gelistirecek birbirinden eglenceli oyuncaklar</p>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Ana Sayfaya Don</a>
+        <h1><i class="fas fa-gamepad"></i> Oyuncak Dünyası</h1>
+        <p>Çocuklarınızın hayal gücünü geliştirecek birbirinden eğlenceli oyuncaklar</p>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Ana Sayfaya Dön</a>
     </section>
 
     <section class="products-section">
         <div class="products-grid">
+            
             <div class="product-card">
-                <div class="product-img"><span class="product-badge">Populer</span><img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&auto=format&fit=crop&q=60" alt="Akulu Araba"></div>
-                <div class="product-info"><span class="product-cat">Oyuncak</span><h3 class="product-title">Uzaktan Kumandali Lisansli Akulu Araba Cesitleri</h3><p class="product-price">Fiyat Sorun</p><a href="https://wa.me/905347427560?text=Merhaba,%20akulu%20arabalar%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Bilgi Al</a></div>
+                <div class="product-img">
+                    <span class="product-badge">Popüler</span>
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&auto=format&fit=crop&q=60" alt="Akülü Araba">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Oyuncak</span>
+                    <h3 class="product-title">Uzaktan Kumandalı Lisanslı Akülü Araba Çeşitleri</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20akulu%20arabalar%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
             </div>
+
             <div class="product-card">
-                <div class="product-img"><img src="https://images.unsplash.com/photo-1559251606-c623743a6d76?w=500&auto=format&fit=crop&q=60" alt="Barbie"></div>
-                <div class="product-info"><span class="product-cat">Oyuncak</span><h3 class="product-title">Orijinal Barbie ve Figur Bebek Karakterleri</h3><p class="product-price">Fiyat Sorun</p><a href="https://wa.me/905347427560?text=Merhaba,%20figur%20bebekler%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Bilgi Al</a></div>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1559251606-c623743a6d76?w=500&auto=format&fit=crop&q=60" alt="Oyuncak Bebek">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Oyuncak</span>
+                    <h3 class="product-title">Orijinal Barbie ve Figür Bebek Karakterleri</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20figur%20bebekler%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
             </div>
+
             <div class="product-card">
-                <div class="product-img"><span class="product-badge">Yeni</span><img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=500&auto=format&fit=crop&q=60" alt="Bisiklet"></div>
-                <div class="product-info"><span class="product-cat">Oyuncak</span><h3 class="product-title">Cocuk Bisikleti ve Denge Bisikletleri</h3><p class="product-price">Fiyat Sorun</p><a href="https://wa.me/905347427560?text=Merhaba,%20cocuk%20bisikleti%20hakkinda%20bilgi%20almak%20istiyorum" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Bilgi Al</a></div>
+                <div class="product-img">
+                    <span class="product-badge">Yeni</span>
+                    <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=500&auto=format&fit=crop&q=60" alt="Bisiklet">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Oyuncak</span>
+                    <h3 class="product-title">Çocuk Bisikleti ve Denge Bisikletleri</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20cocuk%20bisikleti%20hakkinda%20bilgi%20almak%20istiyorum" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
             </div>
+
             <div class="product-card">
-                <div class="product-img"><span class="product-badge">Cok Satan</span><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=500&auto=format&fit=crop&q=60" alt="Lego"></div>
-                <div class="product-info"><span class="product-cat">Oyuncak</span><h3 class="product-title">Lego ve Yapi Bloklari Cesitleri</h3><p class="product-price">Fiyat Sorun</p><a href="https://wa.me/905347427560?text=Merhaba,%20lego%20ve%20yapi%20bloklari%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Bilgi Al</a></div>
+                <div class="product-img">
+                    <span class="product-badge">Çok Satan</span>
+                    <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=500&auto=format&fit=crop&q=60" alt="Lego Seti">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Oyuncak</span>
+                    <h3 class="product-title">Lego ve Yapı Blokları Çeşitleri</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20lego%20ve%20yapi%20bloklari%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
             </div>
+
             <div class="product-card">
-                <div class="product-img"><img src="https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?w=500&auto=format&fit=crop&q=60" alt="Pelus"></div>
-                <div class="product-info"><span class="product-cat">Oyuncak</span><h3 class="product-title">Yumusak Pelus Oyuncak Ayi ve Karakterler</h3><p class="product-price">Fiyat Sorun</p><a href="https://wa.me/905347427560?text=Merhaba,%20pelus%20oyuncaklar%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Bilgi Al</a></div>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?w=500&auto=format&fit=crop&q=60" alt="Pelüş Oyuncak">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Oyuncak</span>
+                    <h3 class="product-title">Yumuşak Pelüş Oyuncak Ayı ve Karakterler</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20pelus%20oyuncaklar%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
             </div>
+
             <div class="product-card">
-                <div class="product-img"><span class="product-badge">Indirim</span><img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?w=500&auto=format&fit=crop&q=60" alt="Kutu Oyunu"></div>
-                <div class="product-info"><span class="product-cat">Oyuncak</span><h3 class="product-title">Egitici Kutu Oyunlari ve Puzzle Cesitleri</h3><p class="product-price">Fiyat Sorun</p><a href="https://wa.me/905347427560?text=Merhaba,%20kutu%20oyunlari%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Bilgi Al</a></div>
+                <div class="product-img">
+                    <span class="product-badge">İndirim</span>
+                    <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?w=500&auto=format&fit=crop&q=60" alt="Kutu Oyunu">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Oyuncak</span>
+                    <h3 class="product-title">Eğitici Kutu Oyunları ve Puzzle Çeşitleri</h3>
+                    <p class="product-price">Fiyat Sorun</p>
+                    <a href="https://wa.me/905347427560?text=Merhaba,%20kutu%20oyunlari%20hakkinda%20bilgi%20alabilir%20miyim?" target="_blank" class="btn-order">
+                        <i class="fab fa-whatsapp"></i> Bilgi Al
+                    </a>
+                </div>
             </div>
+
         </div>
     </section>
 
-    <a href="https://wa.me/905347427560" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/905347427560" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer>
-        <p>© 2026 TuZy Kirtasiye Oyuncak. Tum Haklari Saklidir. | Web Developer: Ensar</p>
+        <p>© 2026 TuZy Kırtasiye Oyuncak. Tüm Hakları Saklıdır. | Web Developer: Ensar</p>
     </footer>
+
 </body>
 </html>
